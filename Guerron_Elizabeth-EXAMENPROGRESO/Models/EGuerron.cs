@@ -8,11 +8,13 @@ namespace Guerron_Elizabeth_EXAMENPROGRESO.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public decimal Altura { get; set; }
-        [MaxLength(20)]       
+        public float Sueldo { get; set; }
+        [MaxLength(20)]
+        [Required]
         public string Nombre { get; set; }
 
         [EmailAddress]
+        [Required]
         public string Correo { get; set; }
 
         public bool ClienteAntiguo { get; set; }

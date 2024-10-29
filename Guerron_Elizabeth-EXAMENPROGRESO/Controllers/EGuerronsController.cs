@@ -10,23 +10,23 @@ using Guerron_Elizabeth_EXAMENPROGRESO.Models;
 
 namespace Guerron_Elizabeth_EXAMENPROGRESO.Controllers
 {
-    public class Clientes : Controller
+    public class EGuerronsController : Controller
     {
         private readonly Guerron_Elizabeth_EXAMENPROGRESOContext _context;
 
-        public Clientes(Guerron_Elizabeth_EXAMENPROGRESOContext context)
+        public EGuerronsController(Guerron_Elizabeth_EXAMENPROGRESOContext context)
         {
             _context = context;
         }
 
-        // GET: Clientes
+        // GET: EGuerrons
         public async Task<IActionResult> Index()
         {
             var guerron_Elizabeth_EXAMENPROGRESOContext = _context.EGuerron.Include(e => e.Celular);
             return View(await guerron_Elizabeth_EXAMENPROGRESOContext.ToListAsync());
         }
 
-        // GET: Clientes/Details/5
+        // GET: EGuerrons/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,19 +45,19 @@ namespace Guerron_Elizabeth_EXAMENPROGRESO.Controllers
             return View(eGuerron);
         }
 
-        // GET: Clientes/Create
+        // GET: EGuerrons/Create
         public IActionResult Create()
         {
             ViewData["IdCelular"] = new SelectList(_context.Set<Celular>(), "Id", "Id");
             return View();
         }
 
-        // POST: Clientes/Create
+        // POST: EGuerrons/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Altura,Nombre,Correo,ClienteAntiguo,Pedido,IdCelular")] EGuerron eGuerron)
+        public async Task<IActionResult> Create([Bind("Id,Sueldo,Nombre,Correo,ClienteAntiguo,Pedido,IdCelular")] EGuerron eGuerron)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +69,7 @@ namespace Guerron_Elizabeth_EXAMENPROGRESO.Controllers
             return View(eGuerron);
         }
 
-        // GET: Clientes/Edit/5
+        // GET: EGuerrons/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,12 +86,12 @@ namespace Guerron_Elizabeth_EXAMENPROGRESO.Controllers
             return View(eGuerron);
         }
 
-        // POST: Clientes/Edit/5
+        // POST: EGuerrons/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Altura,Nombre,Correo,ClienteAntiguo,Pedido,IdCelular")] EGuerron eGuerron)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Sueldo,Nombre,Correo,ClienteAntiguo,Pedido,IdCelular")] EGuerron eGuerron)
         {
             if (id != eGuerron.Id)
             {
@@ -122,7 +122,7 @@ namespace Guerron_Elizabeth_EXAMENPROGRESO.Controllers
             return View(eGuerron);
         }
 
-        // GET: Clientes/Delete/5
+        // GET: EGuerrons/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -141,7 +141,7 @@ namespace Guerron_Elizabeth_EXAMENPROGRESO.Controllers
             return View(eGuerron);
         }
 
-        // POST: Clientes/Delete/5
+        // POST: EGuerrons/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
