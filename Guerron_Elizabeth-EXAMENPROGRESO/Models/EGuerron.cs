@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Guerron_Elizabeth_EXAMENPROGRESO.Models
 {
@@ -7,7 +8,7 @@ namespace Guerron_Elizabeth_EXAMENPROGRESO.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public float Altura { get; set; }
+        public decimal Altura { get; set; }
         [MaxLength(20)]       
         public string Nombre { get; set; }
 
@@ -18,6 +19,10 @@ namespace Guerron_Elizabeth_EXAMENPROGRESO.Models
 
         [DataType(DataType.Date)]
         public DateTime Pedido { get; set; }
+
+        public Celular Celular { get; set; }
+        [ForeignKey("Celular")]
+        public int IdCelular { get; set; }
 
 
 
