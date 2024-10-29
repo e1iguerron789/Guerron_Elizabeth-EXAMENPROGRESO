@@ -15,5 +15,6 @@ namespace Guerron_Elizabeth_EXAMENPROGRESO.Data
         }
 
         public DbSet<Guerron_Elizabeth_EXAMENPROGRESO.Models.EGuerron> EGuerron { get; set; } = default!;
+        public DbSet<Guerron_Elizabeth_EXAMENPROGRESO.Models.Celular> Celular { get; set; } = default!;
     }
 }
